@@ -27,9 +27,14 @@ init python:
     quick_dissolve = Dissolve(0.2)
     
     def setup_character(character_name, scene_name):
-        renpy.scene()
-        renpy.with_statement(quick_fade)
+        # On cache d'abord le personnage actuel s'il existe
+        renpy.hide(character_name)
+        
+        # On affiche la nouvelle scène avec une transition douce
+        renpy.with_statement(quick_dissolve)
         renpy.show(scene_name)
+        
+        # On affiche le personnage avec une transition douce
         renpy.with_statement(quick_dissolve)
         renpy.show(character_name, 
                   at_list=[Transform(
@@ -37,7 +42,8 @@ init python:
                       yalign=CHARACTER_DISPLAY["yalign"],
                       xalign=CHARACTER_DISPLAY["xalign"]
                   )])
-        renpy.with_statement(Pause(0.2))
+        
+        # On démarre la musique
         renpy.music.play(AMBIENT_SOUND, channel="sound", fadein=0.5)
 
     def end_dialogue(character_name):
