@@ -39,6 +39,7 @@ label introduction:
     scene black with fade
     stop music fadeout 2.0
     scene salon_meurtre with fade
+    play music "audio/ambiance_salon.mp3" fadein 2.0
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
     
@@ -48,9 +49,6 @@ label introduction:
 label menu_principal:
     menu:
         "Que souhaitez-vous faire ?"
-        
-        "Scanner le QR code pour voir les pièces du crime":
-            call scanner_qr_aero
         
         "Interroger les suspects":
             call interroger
