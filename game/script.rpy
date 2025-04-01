@@ -19,6 +19,8 @@ init python:
         "bibliotheque": [],
         "cave": []
     }
+    # Variable pour suivre si des interrogatoires ont été effectués
+    interrogatoires_effectues = False
 
 # Le jeu commence ici.
 label start:
@@ -39,7 +41,6 @@ label introduction:
     scene black with fade
     stop music fadeout 2.0
     scene salon_meurtre with fade
-    play music "audio/ambiance_salon.mp3" fadein 2.0
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
     
@@ -51,9 +52,10 @@ label menu_principal:
         "Que souhaitez-vous faire ?"
         
         "Interroger les suspects":
+            $ interrogatoires_effectues = True
             call interroger
         
-        "Accuser un suspect":
+        "Accuser un suspect" if interrogatoires_effectues:
             call menu_accusation
         
         "Quitter":
