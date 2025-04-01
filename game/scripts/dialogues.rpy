@@ -1,110 +1,135 @@
-init python:
-    # Variables pour suivre la progression des dialogues
-    dialogues_debloques = {
-        "Eloise": {"base": True, "documents": False, "victor": False, "clara": False, "preuves": False},
-        "Antoine": {"base": True, "couteaux": False, "eloise": False, "victor": False, "clara": False},
-        "Victor": {"base": True, "dettes": False, "documents": False, "clara": False, "antoine": False},
-        "Clara": {"base": True, "mot": False, "testament": False, "antoine": False, "eloise": False},
-        "Charles": {"base": True, "bouteille": False, "sang": False, "victor": False, "clara": False},
-        "Madeleine": {"base": True, "clara": False, "antoine": False, "bruits": False, "tissu": False}
-    }
-    
-    # Localisation des personnages
-    localisation_personnages = {
-        "salon": ["Eloise", "Victor"],
-        "bureau": ["Clara"],
-        "cuisine": ["Antoine"],
-        "bibliotheque": ["Madeleine"],
-        "cave": ["Charles"]
-    }
+# Dialogues des personnages
 
-# Labels pour les dialogues de chaque personnage
+# Configuration des dialogues
+init python:
+    # Constantes pour l'affichage des personnages
+    CHARACTER_DISPLAY = {
+        "zoom": 1.5,
+        "yalign": 0.2,
+        "xalign": 0.5
+    }
+    
+    # Association des personnages avec leurs lieux
+    CHARACTER_LOCATIONS = {
+        "madeleine": "bibliotheque",
+        "eloise": "cusine",
+        "antoine": "salon",
+        "victor": "jardin",
+        "clara": "bureau",
+        "charles": "cave"
+    }
+    
+    # Configuration audio
+    AMBIENT_SOUND = "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3"
+    
+    # Transitions rapides
+    quick_fade = Fade(0.2, 0.0, 0.2)
+    quick_dissolve = Dissolve(0.2)
+    
+    def setup_character(character_name, scene_name):
+        # On cache d'abord le personnage actuel s'il existe
+        renpy.hide(character_name)
+        
+        # On affiche la nouvelle scène avec une transition douce
+        renpy.with_statement(quick_dissolve)
+        renpy.show(scene_name)
+        
+        # On affiche le personnage avec une transition douce
+        renpy.with_statement(quick_dissolve)
+        renpy.show(character_name, 
+                  at_list=[Transform(
+                      zoom=CHARACTER_DISPLAY["zoom"],
+                      yalign=CHARACTER_DISPLAY["yalign"],
+                      xalign=CHARACTER_DISPLAY["xalign"]
+                  )])
+        
+        # On démarre la musique
+        renpy.music.play(AMBIENT_SOUND, channel="sound", fadein=0.5)
+
+    def end_dialogue(character_name):
+        renpy.music.stop(channel="sound", fadeout=0.5)
+        renpy.with_statement(quick_dissolve)
+        renpy.hide(character_name)
+
+    def start_dialogue(character_name):
+        setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+
+# Dialogues individuels
+label dialogue_madeleine:
+    $ start_dialogue("madeleine")
+    madeleine "Je suis Madeleine Rousseau. Je me suis retirée dans ma chambre immédiatement après le dîner."
+    detective "Avez-vous remarqué quelque chose d'inhabituel avant de vous retirer ?"
+    madeleine "Oui... J'ai vu Hugo glisser un mot à Clara. Ils cachaient quelque chose, c'était évident."
+    detective "Pensez-vous que Clara pourrait être impliquée ?"
+    madeleine "Je ne veux pas accuser qui que ce soit, mais leur comportement était suspect."
+    $ end_dialogue("madeleine")
+    return
+
 label dialogue_eloise:
-    scene salon_meurtre
-    show eloise neutral
-    
-    if not dialogues_debloques["Eloise"]["documents"] and "finances" in indices_decouverts["bureau"]:
-        $ dialogues_debloques["Eloise"]["documents"] = True
-        eloise "Ces papiers... Je les ai vus sur son bureau. Il les cachait dès que j'approchais."
-        eloise "Je pense qu'il avait des problèmes d'argent, mais il refusait d'en parler."
-    
-    if not dialogues_debloques["Eloise"]["victor"] and "dettes" in indices_decouverts["bureau"]:
-        $ dialogues_debloques["Eloise"]["victor"] = True
-        eloise "Victor ? Oui, il venait souvent. Toujours pour emprunter de l'argent à Hugo."
-        eloise "Leur dernière dispute était violente. J'ai entendu Hugo menacer de tout révéler."
+    $ start_dialogue("eloise")
+    eloise "Je suis Éloïse Marceau, la femme de la victime. J'étais sortie fumer après ma dispute avec Hugo."
+    detective "Pouvez-vous me parler de cette dispute ?"
+    eloise "C'était... c'était une dispute banale. Je l'ai quitté en larmes."
+    detective "Avez-vous remarqué quelque chose de suspect ?"
+    eloise "Oui, j'ai vu Antoine rôder près du salon. Il déteste mon mari, vous savez."
+    $ end_dialogue("eloise")
     return
 
 label dialogue_antoine:
-    scene cuisine
-    show antoine neutral
-    
-    if not dialogues_debloques["Antoine"]["couteaux"] and "couteau" in indices_decouverts["cuisine"]:
-        $ dialogues_debloques["Antoine"]["couteaux"] = True
-        antoine "Les couteaux ? Je... je ne les ai pas comptés ce soir-là."
-        antoine "Il en manque un ? C'est possible, la cuisine est accessible à tous..."
-    
-    if not dialogues_debloques["Antoine"]["clara"] and "testament" in indices_decouverts["bureau"]:
-        $ dialogues_debloques["Antoine"]["clara"] = True
-        antoine "Cette demoiselle ? Elle traîne souvent dans le manoir."
-        antoine "Je l'ai surprise une fois à fouiller dans le bureau d'Hugo."
+    $ start_dialogue("antoine")
+    antoine "Antoine Durand, le majordome. J'étais à la cuisine pour ranger après le dîner."
+    detective "Avez-vous vu quelqu'un passer par la cuisine ?"
+    antoine "Non, j'étais seul. Mais je dois dire que je ne supportais plus Hugo."
+    detective "Qui soupçonnez-vous ?"
+    antoine "Victor Delmas. Il lui doit de l'argent et en parle toujours avec rage."
+    $ end_dialogue("antoine")
     return
 
 label dialogue_victor:
-    scene salon_meurtre
-    show victor neutral
-    
-    if not dialogues_debloques["Victor"]["dettes"] and "finances" in indices_decouverts["bureau"]:
-        $ dialogues_debloques["Victor"]["dettes"] = True
-        victor "C'est vrai, je lui devais de l'argent. Beaucoup d'argent."
-        victor "Il menaçait de tout révéler à ma famille, à mes associés..."
-    
-    if not dialogues_debloques["Victor"]["antoine"] and "couteau" in indices_decouverts["cuisine"]:
-        $ dialogues_debloques["Victor"]["antoine"] = True
-        victor "Antoine ? Il détestait Hugo, c'était évident."
-        victor "Je l'ai entendu dire qu'il 'règlerait son compte' à Hugo."
+    $ start_dialogue("victor")
+    victor "Victor Delmas, le jardinier. J'ai fumé dans le jardin toute la soirée."
+    detective "Avez-vous vu quelqu'un dans le jardin ?"
+    victor "Oui, Madame Marceau. Elle était furieuse après la dispute... Je l'ai vue quitter le salon en larmes."
+    detective "Pensez-vous qu'elle pourrait être impliquée ?"
+    victor "Je ne veux pas accuser qui que ce soit, mais son comportement était étrange."
+    $ end_dialogue("victor")
     return
 
 label dialogue_clara:
-    scene bureau
-    show clara neutral
-    
-    if not dialogues_debloques["Clara"]["mot"] and any([x in indices_decouverts["salon"] for x in ["note", "lettre"]]):
-        $ dialogues_debloques["Clara"]["mot"] = True
-        clara "Ce mot ? Ce n'était rien d'important..."
-        clara "Hugo voulait juste me parler de certains documents..."
-    
-    if not dialogues_debloques["Clara"]["testament"] and "testament" in indices_decouverts["bureau"]:
-        $ dialogues_debloques["Clara"]["testament"] = True
-        clara "Le testament ? Je... je ne savais pas qu'il m'y avait incluse."
-        clara "Nous avions une relation particulière... professionnelle."
+    $ start_dialogue("clara")
+    clara "Clara Duvivier, la secrétaire de Monsieur Marceau. J'étais à la bibliothèque, seule, en train de lire."
+    detective "Avez-vous parlé à quelqu'un ce soir-là ?"
+    clara "Oui, j'ai parlé à Antoine. Il m'a confié qu'il ne supportait plus Hugo."
+    detective "Avez-vous remarqué quelque chose d'inhabituel ?"
+    clara "Non, tout semblait normal. Je n'ai rien vu d'étrange."
+    $ end_dialogue("clara")
     return
 
 label dialogue_charles:
-    scene cave
-    show charles neutral
-    
-    if not dialogues_debloques["Charles"]["bouteille"] and "verre" in indices_decouverts["cuisine"]:
-        $ dialogues_debloques["Charles"]["bouteille"] = True
-        charles "Cette bouteille brisée ? Je l'ai trouvée comme ça."
-        charles "J'ai voulu la ramasser, c'est pour ça qu'il y a mes empreintes."
-    
-    if not dialogues_debloques["Charles"]["sang"] and "sang" in indices_decouverts["cave"]:
-        $ dialogues_debloques["Charles"]["sang"] = True
-        charles "Du sang dans l'escalier ? Je... je ne l'ai pas remarqué."
-        charles "Il faisait sombre, vous comprenez..."
+    $ start_dialogue("charles")
+    charles "Charles Beaumont, le propriétaire du manoir. Je suis descendu à la cave pour chercher une bouteille après le dîner."
+    detective "Avez-vous vu ou entendu quelque chose ?"
+    charles "Non, la cave est bien isolée. Mais je dois dire que entre Éloïse et Hugo, il y avait beaucoup de tension. Les disputes étaient fréquentes."
+    detective "Pensez-vous que Éloïse pourrait être impliqué ?"
+    charles "Je ne veux pas faire d'accusations, mais il y avait beaucoup de tension entre eux."
+    $ end_dialogue("charles")
     return
 
-label dialogue_madeleine:
-    scene bibliotheque
-    show madeleine neutral
-    
-    if not dialogues_debloques["Madeleine"]["clara"] and "testament" in indices_decouverts["bureau"]:
-        $ dialogues_debloques["Madeleine"]["clara"] = True
-        madeleine "Oh oui, j'ai vu Hugo glisser un mot à Clara pendant le dîner."
-        madeleine "Ils pensaient être discrets, mais je vois tout, vous savez..."
-    
-    if not dialogues_debloques["Madeleine"]["antoine"] and "couteau" in indices_decouverts["cuisine"]:
-        $ dialogues_debloques["Madeleine"]["antoine"] = True
-        madeleine "Antoine ? Il était particulièrement nerveux ce soir-là."
-        madeleine "Je l'ai vu sortir de la cuisine avec quelque chose sous sa veste."
+# Nouveau dialogue pour accuser Antoine
+label accuser_antoine:
+    $ start_dialogue("antoine")
+    detective "Monsieur Durand, j'ai quelques questions supplémentaires."
+    antoine "Bien sûr, inspecteur. Je suis là pour vous aider."
+    detective "Vous avez mentionné que vous ne supportiez plus Hugo. Pouvez-vous m'expliquer pourquoi ?"
+    antoine "C'est... c'est une longue histoire."
+    detective "J'ai tout le temps nécessaire."
+    antoine "Hugo... il m'a ruiné. Il m'a fait perdre tout mon argent dans une affaire douteuse. Je lui devais tout."
+    detective "Et vous étiez en colère contre lui ?"
+    antoine "Plus que ça. Je... je voulais qu'il paie pour ce qu'il m'a fait."
+    detective "Voulez-vous dire que vous vouliez le tuer ?"
+    antoine "Je... je ne devrais pas avoir dit ça. Je n'ai rien fait, je vous le jure !"
+    detective "Alors pourquoi avez-vous un revolver dans votre tiroir de cuisine ?"
+    antoine "Je... je ne peux plus mentir. Oui, c'est moi. C'est moi qui l'ai tué. Je ne pouvais plus supporter ce qu'il m'avait fait."
+    detective "Vous êtes en état d'arrestation, Monsieur Durand."
+    $ end_dialogue("antoine")
     return 

@@ -1,1 +1,0 @@
-# Ce fichier a été supprimé car son contenu a été déplacé dans dialogues.rpy 

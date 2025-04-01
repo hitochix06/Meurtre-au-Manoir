@@ -1,42 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 37, in script call
-    call inspecter_scene_meurtre
-  File "game/script.rpy", line 40, in script call
+  File "game/script.rpy", line 89, in script call
     call interroger
-  File "game/scripts/interrogatoire.rpy", line 15, in script call
+  File "game/scripts/interrogatoire.rpy", line 38, in script call
     call dialogue_eloise
-  File "game/scripts/dialogues.rpy", line 24, in script
-    show eloise neutral
-Exception: Image 'eloise' does not accept attributes 'neutral'.
+  File "game/scripts/dialogues.rpy", line 65, in script
+    $ end_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 65, in <module>
+    $ end_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 41, in end_dialogue
+    renpy.with_statement(dissolve, _transition_time=0.2)
+TypeError: with_statement() got an unexpected keyword argument '_transition_time'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 37, in script call
-    call inspecter_scene_meurtre
-  File "game/script.rpy", line 40, in script call
+  File "game/script.rpy", line 89, in script call
     call interroger
-  File "game/scripts/interrogatoire.rpy", line 15, in script call
+  File "game/scripts/interrogatoire.rpy", line 38, in script call
     call dialogue_eloise
-  File "game/scripts/dialogues.rpy", line 24, in script
-    show eloise neutral
-  File "D:\renpy-8.3.3\renpy\ast.py", line 1124, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "D:\renpy-8.3.3\renpy\ast.py", line 1087, in show_imspec
-    renpy.config.show(name,
-  File "D:\renpy-8.3.3\renpy\exports\displayexports.py", line 477, in show
-    if not base.find_target() and renpy.config.missing_show:
-  File "D:\renpy-8.3.3\renpy\display\image.py", line 421, in find_target
-    self.target = target._duplicate(a)
-  File "D:\renpy-8.3.3\renpy\display\displayable.py", line 249, in _duplicate
-    args.extraneous()
-  File "D:\renpy-8.3.3\renpy\display\displayable.py", line 109, in extraneous
-    raise Exception("Image '{}' does not accept attributes '{}'.".format(
-Exception: Image 'eloise' does not accept attributes 'neutral'.
+  File "game/scripts/dialogues.rpy", line 65, in script
+    $ end_dialogue("eloise")
+  File "D:\renpy-8.3.3\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy-8.3.3\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/scripts/dialogues.rpy", line 65, in <module>
+    $ end_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 41, in end_dialogue
+    renpy.with_statement(dissolve, _transition_time=0.2)
+TypeError: with_statement() got an unexpected keyword argument '_transition_time'
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.7.25031702
 Meurtre au Manoir 1.0
-Tue Apr  1 07:49:26 2025
+Tue Apr  1 11:58:37 2025

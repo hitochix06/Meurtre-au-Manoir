@@ -1,33 +1,89 @@
+init python:
+    # Variables pour le système d'accusation
+    tentatives_accusation = 0
+    indice_affiché = False
+    
+    # Liste des suspects et des armes
+    suspects = ["Éloïse Marceau", "Antoine Durand", "Victor Delmas", "Clara Duvivier", "Charles Beaumont", "Madeleine Rousseau"]
+    armes = ["Pistolet de poche", "Corde nouée", "Statue", "Canne-épée", "Poignard orné"]
+
 # Système d'accusation
 label menu_accusation:
     scene bureau with fade
     
     "Le moment est venu de désigner le coupable."
     
+    "Qui accusez-vous ?"
     menu:
-        "Qui accusez-vous ?"
-        
+        "Choisissez un suspect:"
         "Éloïse Marceau":
-            $ accuse = "Eloise"
+            $ suspect_choisi = "Éloïse Marceau"
+            jump choix_arme
         "Antoine Durand":
-            $ accuse = "Antoine"
+            $ suspect_choisi = "Antoine Durand"
+            jump choix_arme
         "Victor Delmas":
-            $ accuse = "Victor"
+            $ suspect_choisi = "Victor Delmas"
+            jump choix_arme
         "Clara Duvivier":
-            $ accuse = "Clara"
+            $ suspect_choisi = "Clara Duvivier"
+            jump choix_arme
         "Charles Beaumont":
-            $ accuse = "Charles"
+            $ suspect_choisi = "Charles Beaumont"
+            jump choix_arme
         "Madeleine Rousseau":
-            $ accuse = "Madeleine"
-    
+            $ suspect_choisi = "Madeleine Rousseau"
+            jump choix_arme
+
+label choix_arme:
+    "Quelle arme a été utilisée selon vous ?"
+    menu:
+        "Choisissez une arme:"
+        "Pistolet de poche":
+            $ arme_choisie = "Pistolet de poche"
+            jump verification_accusation
+        "Corde nouée":
+            $ arme_choisie = "Corde nouée"
+            jump verification_accusation
+        "Statue":
+            $ arme_choisie = "Statue"
+            jump verification_accusation
+        "Canne-épée":
+            $ arme_choisie = "Canne-épée"
+            jump verification_accusation
+        "Poignard orné":
+            $ arme_choisie = "Poignard orné"
+            jump verification_accusation
+
+label verification_accusation:
     # Vérification de l'accusation
-    if accuse == "Antoine" and "couteau" in indices_decouverts["cuisine"] and "lutte" in indices_decouverts["cuisine"]:
-        "Vous avez résolu l'affaire ! Antoine est bien le coupable."
-        "Les preuves étaient là : le couteau manquant, les traces de lutte..."
+    if suspect_choisi == "Éloïse Marceau" and arme_choisie == "Pistolet de poche":
+        scene victory with fade
+        "Vous avez résolu l'affaire ! Éloïse est bien la coupable."
         "Bravo, inspecteur !"
+        
+        menu:
+            "Que souhaitez-vous faire ?"
+            "Rejouer":
+                $ renpy.full_restart()
+            "Quitter le jeu":
+                $ renpy.quit()
     else:
-        "Votre accusation ne tient pas... Il vous manque des preuves."
-        "Continuez votre enquête."
-        jump menu_principal
-    
-    return 
+        "Ce n'est pas la bonne combinaison. Essayez encore !"
+        $ tentatives_accusation += 1
+        
+        if tentatives_accusation >= 3 and not indice_affiché:
+            $ indice_affiché = True
+            "Vous semblez avoir des difficultés... Laissez-moi vous donner quelques indices :"
+            "Le coupable est une femme..."
+            "Et l'arme est un objet qui peut être facilement dissimulé..."
+            "Ces indices devraient vous aider à résoudre l'énigme."
+        
+        menu:
+            "Que souhaitez-vous faire ?"
+            "Réessayer":
+                jump menu_accusation
+            "Retourner au menu principal":
+                jump menu_principal
+            "Quitter le jeu":
+                $ renpy.quit() 

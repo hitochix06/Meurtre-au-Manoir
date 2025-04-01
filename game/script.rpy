@@ -1,7 +1,31 @@
 ### Menu principal ###
 
+# Définition des images
+# Images des lieux
+image salon = "images/lieux/salon.png"
+image bibliotheque = "images/lieux/bibliotheque.png"
+image salon_meurtre = "images/salon_meurtre.png"
+image cuisine = "images/lieux/cusine.png"
+image cave = "images/lieux/cave.png"
+image manoir = "images/lieux/manoir.png"
+image bureau = "images/lieux/bureau.png"
+image jardin = "images/lieux/jardin.png"
+image info = "images/info.png"
+
+
+# Images des personnages
+image madeleine = "images/personnage/madeleine.png"
+image eloise = "images/personnage/eloise.png"
+image antoine = "images/personnage/antoine.png"
+image victor = "images/personnage/victor.png"
+image clara = "images/personnage/clara.png"
+image charles = "images/personnage/charles.png"
+
+# Définition des sons
+define audio.salon_ambiance = "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3"
+
 # Définition des personnages
-define detective = Character("Détective", color="#c8ffc8")
+define detective = Character("Inspecteur", color="#2980b9")
 define eloise = Character("Éloïse Marceau", color="#D36E70")
 define antoine = Character("Antoine Durand", color="#D39056")
 define victor = Character("Victor Delmas", color="#7CBD74")
@@ -19,33 +43,57 @@ init python:
         "bibliotheque": [],
         "cave": []
     }
-
+    # Variable pour suivre si des interrogatoires ont été effectués
+    interrogatoires_effectues = False
+    
+    # Localisation des personnages
+    localisation_personnages = {
+        "salon": ["Antoine"],
+        "cuisine": ["Eloise"],
+        "bureau": ["Clara"],
+        "jardin": ["Victor"],
+        "bibliotheque": ["Madeleine"],
+        "cave": ["Charles"]
+    }
+    
+  
 # Le jeu commence ici.
 label start:
+    scene black
+    show info with dissolve
+    pause
+    hide info with dissolve
+    jump introduction
+
+# Introduction du jeu
+label introduction:
+    scene black with fade
+    play music "audio/ambiance_mystere.mp3" fadein 2.0
+    scene manoir with dissolve
+    "Une nuit au manoir Beaumont."
+    "Le prestigieux détective Hugo Delacourt est retrouvé mort dans le salon."
+    "Sur la table, six objets sont soigneusement disposés, chacun lié aux convives présents ce soir-là."
+    "Tous avaient un mobile."
+    "Vous incarnez l'inspecteur Jouvet."
+    "Votre objectif : comprendre qui a tué Hugo, pourquoi... et comment."
+    scene black with fade
+    stop music fadeout 2.0
     scene salon_meurtre with fade
+    play music salon_ambiance fadein 2.0
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
     
-    jump menu_principal
-
+   
 # Menu principal des actions
 label menu_principal:
     menu:
         "Que souhaitez-vous faire ?"
         
-        "Examiner la scène du crime":
-            call inspecter_scene_meurtre
-        
         "Interroger les suspects":
+            $ interrogatoires_effectues = True
             call interroger
         
-        "Fouiller le bureau":
-            call fouiller_bureau
-        
-        "Inspecter la cuisine":
-            call inspecter_cuisine
-        
-        "Accuser un suspect":
+        "Accuser un suspect" if interrogatoires_effectues:
             call menu_accusation
         
         "Quitter":
@@ -62,28 +110,4 @@ label consulter_notes:
                     renpy.say("", "- " + indice)
     menu:
         "Retour au menu principal":
-            jump menu_principal
-
-# Scène de crime (alternative au label examiner_scene_crime en conflit)
-label inspecter_scene_meurtre:
-    scene salon_meurtre with fade
-    
-    menu:
-        "Que souhaitez-vous examiner ?"
-        
-        "Le corps" if "corps" not in indices_decouverts["salon"]:
-            "Le corps présente une blessure par arme blanche. La mort remonte à environ 22h."
-            $ indices_decouverts["salon"].append("corps")
-        
-        "Les alentours" if "note" not in indices_decouverts["salon"]:
-            "Vous trouvez une note froissée près du corps."
-            $ indices_decouverts["salon"].append("note")
-        
-        "Les traces" if "traces" not in indices_decouverts["salon"]:
-            "Des traces de pas mènent vers le jardin."
-            $ indices_decouverts["salon"].append("traces")
-        
-        "Quitter":
-            jump menu_principal
-    
-    jump inspecter_scene_meurtre 
+            jump menu_principal 
