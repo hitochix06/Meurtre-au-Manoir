@@ -24,7 +24,7 @@ image charles = "images/personnage/charles.png"
 define audio.salon_ambiance = "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3"
 
 # Définition des personnages
-define detective = Character("Détective", color="#c8ffc8")
+define detective = Character("Inspecteur", color="#2980b9")
 define eloise = Character("Éloïse Marceau", color="#D36E70")
 define antoine = Character("Antoine Durand", color="#D39056")
 define victor = Character("Victor Delmas", color="#7CBD74")
@@ -53,6 +53,16 @@ init python:
         "jardin": ["Victor"],
         "bibliotheque": ["Madeleine"],
         "cave": ["Charles"]
+    }
+
+    # Variables pour suivre les notes sur les suspects
+    suspect_notes = {
+        "Eloise": {"alibi": False, "mobile": False, "preuve": False},
+        "Antoine": {"alibi": False, "mobile": False, "preuve": False},
+        "Victor": {"alibi": False, "mobile": False, "preuve": False},
+        "Clara": {"alibi": False, "mobile": False, "preuve": False},
+        "Charles": {"alibi": False, "mobile": False, "preuve": False},
+        "Madeleine": {"alibi": False, "mobile": False, "preuve": False}
     }
 
 # Le jeu commence ici.
