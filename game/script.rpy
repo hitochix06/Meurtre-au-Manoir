@@ -2,6 +2,7 @@
 
 # Définition des images
 # Images des lieux
+image salon = "images/lieux/salon.png"
 image bibliotheque = "images/lieux/bibliotheque.png"
 image salon_meurtre = "images/salon_meurtre.png"
 image cuisine = "images/lieux/cusine.png"
@@ -9,6 +10,7 @@ image cave = "images/lieux/cave.png"
 image manoir = "images/lieux/manoir.png"
 image bureau = "images/lieux/bureau.png"
 image jardin = "images/lieux/jardin.png"
+
 
 # Images des personnages
 image madeleine = "images/personnage/madeleine.png"

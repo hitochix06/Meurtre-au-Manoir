@@ -2,7 +2,11 @@
 
 label dialogue_madeleine:
     scene bibliotheque with fade
-    show madeleine at center with dissolve
+    show madeleine:
+        zoom 1.5
+        yalign 0.2
+        xalign 0.5
+    with dissolve
     with Pause(0.5)
     play sound "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3" fadein 1.0
     madeleine "Bonjour inspecteur. Je suis Madeleine Rousseau, la bibliothécaire du manoir."
@@ -16,7 +20,11 @@ label dialogue_madeleine:
 
 label dialogue_eloise:
     scene cuisine with fade
-    show eloise at center with dissolve
+    show eloise:
+        zoom 1.5
+        yalign 0.2
+        xalign 0.5
+    with dissolve
     with Pause(0.5)
     play sound "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3" fadein 1.0
     eloise "Je suis Éloïse Marceau, la femme de la victime."
@@ -30,7 +38,11 @@ label dialogue_eloise:
 
 label dialogue_antoine:
     scene salon with fade
-    show antoine at center with dissolve
+    show antoine:
+        zoom 1.5
+        yalign 0.2
+        xalign 0.5
+    with dissolve
     with Pause(0.5)
     play sound "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3" fadein 1.0
     antoine "Antoine Durand, le majordome. Comment puis-je vous aider, inspecteur ?"
@@ -44,7 +56,11 @@ label dialogue_antoine:
 
 label dialogue_victor:
     scene jardin with fade
-    show victor at center with dissolve
+    show victor:
+        zoom 1.5
+        yalign 0.2
+        xalign 0.5
+    with dissolve
     with Pause(0.5)
     play sound "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3" fadein 1.0
     victor "Victor Delmas, le jardinier. Je vous écoute, inspecteur."
@@ -58,7 +74,11 @@ label dialogue_victor:
 
 label dialogue_clara:
     scene bureau with fade
-    show clara at center with dissolve
+    show clara:
+        zoom 1.5
+        yalign 0.2
+        xalign 0.5
+    with dissolve
     with Pause(0.5)
     play sound "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3" fadein 1.0
     clara "Clara Duvivier, la secrétaire de Monsieur Marceau."
@@ -72,7 +92,11 @@ label dialogue_clara:
 
 label dialogue_charles:
     scene cave with fade
-    show charles at center with dissolve
+    show charles:
+        zoom 1.5
+        yalign 0.2
+        xalign 0.5
+    with dissolve
     with Pause(0.5)
     play sound "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3" fadein 1.0
     charles "Charles Beaumont, le propriétaire du manoir."

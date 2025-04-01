@@ -14,7 +14,7 @@ label interroger:
         "Dans quelle pièce souhaitez-vous interroger les suspects ?"
         
         "Le salon":
-            scene salon_meurtre with dissolve
+            scene salon with dissolve
             "Dans le salon, vous voyez :"
             python:
                 for perso in localisation_personnages["salon"]:
