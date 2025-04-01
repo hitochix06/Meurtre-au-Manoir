@@ -60,8 +60,21 @@ label verification_accusation:
         scene victory with fade
         "Vous avez résolu l'affaire ! Éloïse est bien la coupable."
         "Bravo, inspecteur !"
-        return
+        
+        menu:
+            "Que souhaitez-vous faire ?"
+            "Rejouer":
+                $ renpy.full_restart()
+            "Quitter le jeu":
+                $ renpy.quit()
     else:
         "Ce n'est pas la bonne combinaison. Essayez encore !"
         $ tentatives_accusation += 1
-        jump menu_principal 
+        menu:
+            "Que souhaitez-vous faire ?"
+            "Réessayer":
+                jump menu_accusation
+            "Retourner au menu principal":
+                jump menu_principal
+            "Quitter le jeu":
+                $ renpy.quit() 
