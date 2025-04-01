@@ -11,11 +11,11 @@ init python:
     
     # Association des personnages avec leurs lieux
     CHARACTER_LOCATIONS = {
-        "madeleine": "chambre",
-        "eloise": "jardin",
-        "antoine": "cuisine",
+        "madeleine": "bibliotheque",
+        "eloise": "cusine",
+        "antoine": "salon",
         "victor": "jardin",
-        "clara": "bibliotheque",
+        "clara": "bureau",
         "charles": "cave"
     }
     
