@@ -1,30 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 78, in script call
+  File "game/script.rpy", line 90, in script call
     call interroger
-  File "game/scripts/interrogatoire.rpy", line 66, in script
-    python:
-  File "game/scripts/interrogatoire.rpy", line 67, in <module>
-    for perso in localisation_personnages["bibliotheque"]:
-NameError: name 'localisation_personnages' is not defined
+  File "game/scripts/interrogatoire.rpy", line 38, in script call
+    call dialogue_eloise
+  File "game/scripts/dialogues.rpy", line 57, in script
+    $ start_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 57, in <module>
+    $ start_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 43, in start_dialogue
+    setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+  File "game/scripts/dialogues.rpy", line 27, in setup_character
+    renpy.show(scene_name, transition=fade)
+TypeError: show() got an unexpected keyword argument 'transition'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 78, in script call
+  File "game/script.rpy", line 90, in script call
     call interroger
-  File "game/scripts/interrogatoire.rpy", line 66, in script
-    python:
+  File "game/scripts/interrogatoire.rpy", line 38, in script call
+    call dialogue_eloise
+  File "game/scripts/dialogues.rpy", line 57, in script
+    $ start_dialogue("eloise")
   File "D:\renpy-8.3.3\renpy\ast.py", line 834, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "D:\renpy-8.3.3\renpy\python.py", line 1187, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/scripts/interrogatoire.rpy", line 67, in <module>
-    for perso in localisation_personnages["bibliotheque"]:
-NameError: name 'localisation_personnages' is not defined
+  File "game/scripts/dialogues.rpy", line 57, in <module>
+    $ start_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 43, in start_dialogue
+    setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+  File "game/scripts/dialogues.rpy", line 27, in setup_character
+    renpy.show(scene_name, transition=fade)
+TypeError: show() got an unexpected keyword argument 'transition'
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.7.25031702
 Meurtre au Manoir 1.0
-Tue Apr  1 10:54:16 2025
+Tue Apr  1 11:55:48 2025

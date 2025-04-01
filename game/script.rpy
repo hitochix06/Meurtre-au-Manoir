@@ -65,10 +65,9 @@ label introduction:
     play music "audio/ambiance_mystere.mp3" fadein 2.0
     scene manoir with dissolve
     "Une nuit au manoir Beaumont."
-    "Le prestigieux détective Hugo Delacourt est retrouvé mort dans le salon, tué d'une balle en plein cœur."
+    "Le prestigieux détective Hugo Delacourt est retrouvé mort dans le salon."
     "Sur la table, six objets sont soigneusement disposés, chacun lié aux convives présents ce soir-là."
     "Tous avaient un mobile."
-    "Mais un seul a appuyé sur la détente."
     "Vous incarnez l'inspecteur Jouvet."
     "Votre objectif : comprendre qui a tué Hugo, pourquoi... et comment."
     scene black with fade

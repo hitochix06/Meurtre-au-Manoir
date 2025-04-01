@@ -34,3 +34,115 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 990) drawable=(1920, 990)
 Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 64.54s
+Loading error handling took 0.02s
+Loading script took 0.15s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.06s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\pacha\\AppData\\Roaming/RenPy/backups\\Meurtre au Manoir':
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.32s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 32.0.101.6129'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 90, in script call
+    call interroger
+  File "game/scripts/interrogatoire.rpy", line 25, in script call
+    call dialogue_antoine
+  File "game/scripts/dialogues.rpy", line 67, in script
+    $ start_dialogue("antoine")
+  File "D:\renpy-8.3.3\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy-8.3.3\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/scripts/dialogues.rpy", line 67, in <module>
+    $ start_dialogue("antoine")
+  File "game/scripts/dialogues.rpy", line 43, in start_dialogue
+    setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+  File "game/scripts/dialogues.rpy", line 27, in setup_character
+    renpy.show(scene_name, transition=fade)
+TypeError: show() got an unexpected keyword argument 'transition'
+
+While running game code:
+  File "game/script.rpy", line 90, in script call
+    call interroger
+  File "game/scripts/interrogatoire.rpy", line 25, in script call
+    call dialogue_antoine
+  File "game/scripts/dialogues.rpy", line 67, in script
+    $ start_dialogue("antoine")
+  File "game/scripts/dialogues.rpy", line 67, in <module>
+    $ start_dialogue("antoine")
+  File "game/scripts/dialogues.rpy", line 43, in start_dialogue
+    setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+  File "game/scripts/dialogues.rpy", line 27, in setup_character
+    renpy.show(scene_name, transition=fade)
+TypeError: show() got an unexpected keyword argument 'transition'
+
+Full traceback:
+  File "game/script.rpy", line 90, in script call
+    call interroger
+  File "game/scripts/interrogatoire.rpy", line 38, in script call
+    call dialogue_eloise
+  File "game/scripts/dialogues.rpy", line 57, in script
+    $ start_dialogue("eloise")
+  File "D:\renpy-8.3.3\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy-8.3.3\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/scripts/dialogues.rpy", line 57, in <module>
+    $ start_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 43, in start_dialogue
+    setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+  File "game/scripts/dialogues.rpy", line 27, in setup_character
+    renpy.show(scene_name, transition=fade)
+TypeError: show() got an unexpected keyword argument 'transition'
+
+While running game code:
+  File "game/script.rpy", line 90, in script call
+    call interroger
+  File "game/scripts/interrogatoire.rpy", line 38, in script call
+    call dialogue_eloise
+  File "game/scripts/dialogues.rpy", line 57, in script
+    $ start_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 57, in <module>
+    $ start_dialogue("eloise")
+  File "game/scripts/dialogues.rpy", line 43, in start_dialogue
+    setup_character(character_name, CHARACTER_LOCATIONS[character_name])
+  File "game/scripts/dialogues.rpy", line 27, in setup_character
+    renpy.show(scene_name, transition=fade)
+TypeError: show() got an unexpected keyword argument 'transition'
