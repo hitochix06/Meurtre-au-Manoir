@@ -33,7 +33,7 @@ label menu_principal:
     menu:
         "Que souhaitez-vous faire ?"
         
-        "Voir en réalité augmentée":
+        "Scanner le QR code pour voir les pièces du crime":
             call scanner_qr_aero
         
         "Interroger les suspects":
