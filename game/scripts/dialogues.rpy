@@ -109,8 +109,27 @@ label dialogue_charles:
     $ start_dialogue("charles")
     charles "Charles Beaumont, le propriétaire du manoir. Je suis descendu à la cave pour chercher une bouteille après le dîner."
     detective "Avez-vous vu ou entendu quelque chose ?"
-    charles "Non, la cave est bien isolée. Mais je dois dire que Victor s'est toujours montré agressif envers Hugo. Les disputes étaient fréquentes."
-    detective "Pensez-vous que Victor pourrait être impliqué ?"
+    charles "Non, la cave est bien isolée. Mais je dois dire que entre Éloïse et Hugo, il y avait beaucoup de tension. Les disputes étaient fréquentes."
+    detective "Pensez-vous que Éloïse pourrait être impliqué ?"
     charles "Je ne veux pas faire d'accusations, mais il y avait beaucoup de tension entre eux."
     $ end_dialogue("charles")
+    return
+
+# Nouveau dialogue pour accuser Antoine
+label accuser_antoine:
+    $ start_dialogue("antoine")
+    detective "Monsieur Durand, j'ai quelques questions supplémentaires."
+    antoine "Bien sûr, inspecteur. Je suis là pour vous aider."
+    detective "Vous avez mentionné que vous ne supportiez plus Hugo. Pouvez-vous m'expliquer pourquoi ?"
+    antoine "C'est... c'est une longue histoire."
+    detective "J'ai tout le temps nécessaire."
+    antoine "Hugo... il m'a ruiné. Il m'a fait perdre tout mon argent dans une affaire douteuse. Je lui devais tout."
+    detective "Et vous étiez en colère contre lui ?"
+    antoine "Plus que ça. Je... je voulais qu'il paie pour ce qu'il m'a fait."
+    detective "Voulez-vous dire que vous vouliez le tuer ?"
+    antoine "Je... je ne devrais pas avoir dit ça. Je n'ai rien fait, je vous le jure !"
+    detective "Alors pourquoi avez-vous un revolver dans votre tiroir de cuisine ?"
+    antoine "Je... je ne peux plus mentir. Oui, c'est moi. C'est moi qui l'ai tué. Je ne pouvais plus supporter ce qu'il m'avait fait."
+    detective "Vous êtes en état d'arrestation, Monsieur Durand."
+    $ end_dialogue("antoine")
     return 
