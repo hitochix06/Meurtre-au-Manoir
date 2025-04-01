@@ -27,6 +27,7 @@ label start:
 # Introduction du jeu
 label introduction:
     scene black with fade
+    play music "audio/ambiance_mystere.mp3" fadein 2.0
     scene manoir with dissolve
     "Une nuit au manoir Beaumont."
     "Le prestigieux détective Hugo Delacourt est retrouvé mort dans le salon, tué d'une balle en plein cœur."
@@ -36,6 +37,7 @@ label introduction:
     "Vous incarnez l'inspecteur Jouvet."
     "Votre objectif : comprendre qui a tué Hugo, pourquoi... et comment."
     scene black with fade
+    stop music fadeout 2.0
     scene salon_meurtre with fade
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
