@@ -1,33 +1,24 @@
 init python:
-    # Au lieu d'utiliser un générateur de QR code en temps réel,
-    # nous allons utiliser des images pré-générées de QR codes
-    
+    # Système de QR code pour la réalité augmentée avec Adobe Aero
     def verifier_qr_code(code_entre):
-        # Dictionnaire des codes valides et leurs correspondances
-        codes_valides = {
-            "ARME123": "Le QR code révèle une information sur l'arme du crime.",
-            "INDICE456": "Le QR code contient un indice sur le mobile du meurtrier.",
-            "LIEU789": "Le QR code indique un détail important sur la scène de crime."
-        }
-        
-        # Vérifier si le code entré est valide
-        return codes_valides.get(code_entre, "Ce code QR n'est pas valide.")
+        # Code unique pour activer la réalité augmentée
+        if code_entre == "AERO123":
+            return True
+        return False
 
-label scanner_qr:
-    scene bureau
+label scanner_qr_aero:
+    scene bureau with fade
     
-    "Vous pouvez entrer un code QR trouvé dans le manoir."
+    "Vous trouvez un QR code mystérieux sur le bureau..."
+    "Il semble contenir des informations sur toutes les pièces et les armes."
     
-    $ code = renpy.input("Entrez le code trouvé:")
-    $ resultat = verifier_qr_code(code.strip().upper())
+    # Afficher l'image du QR code
+    show qr_code at truecenter with dissolve
     
-    "[resultat]"
+    "Scannez ce QR code avec Adobe Aero pour voir toutes les pièces et les armes en réalité augmentée."
     
     menu:
-        "Que souhaitez-vous faire ?"
-        
-        "Scanner un autre code":
-            jump scanner_qr
-            
         "Retourner à l'enquête":
             return
+    
+    jump scanner_qr_aero

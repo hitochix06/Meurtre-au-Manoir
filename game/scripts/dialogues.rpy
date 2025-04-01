@@ -21,8 +21,8 @@ init python:
 
 # Labels pour les dialogues de chaque personnage
 label dialogue_eloise:
-    scene cuisine
-    show eloise neutral
+    scene cuisine with fade
+    show eloise neutral at center
     
     if not dialogues_debloques["Eloise"]["documents"] and "finances" in indices_decouverts["bureau"]:
         $ dialogues_debloques["Eloise"]["documents"] = True
@@ -33,6 +33,18 @@ label dialogue_eloise:
         $ dialogues_debloques["Eloise"]["victor"] = True
         eloise "Victor ? Oui, il venait souvent. Toujours pour emprunter de l'argent à Hugo."
         eloise "Leur dernière dispute était violente. J'ai entendu Hugo menacer de tout révéler."
+    
+    menu:
+        "Comment poursuivre l'interrogatoire ?"
+        
+        "Questionner sur les documents":
+            detective "Ces documents, que contenaient-ils exactement ?"
+            eloise "Je... je ne sais pas. Hugo ne me montrait jamais rien."
+        
+        "Parler de Victor":
+            detective "Cette dispute avec Victor, quand était-ce ?"
+            eloise "La veille du... de l'incident. Je m'en souviens parfaitement."
+    
     return
 
 label dialogue_antoine:

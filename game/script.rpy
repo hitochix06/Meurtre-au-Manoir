@@ -33,8 +33,8 @@ label menu_principal:
     menu:
         "Que souhaitez-vous faire ?"
         
-        "Examiner la scène du crime":
-            call inspecter_scene_meurtre
+        "Voir en réalité augmentée":
+            call scanner_qr_aero
         
         "Interroger les suspects":
             call interroger
@@ -56,28 +56,4 @@ label consulter_notes:
                     renpy.say("", "- " + indice)
     menu:
         "Retour au menu principal":
-            jump menu_principal
-
-# Scène de crime (alternative au label examiner_scene_crime en conflit)
-label inspecter_scene_meurtre:
-    scene salon_meurtre with fade
-    
-    menu:
-        "Que souhaitez-vous examiner ?"
-        
-        "Le corps" if "corps" not in indices_decouverts["salon"]:
-            "Le corps présente une blessure par arme à feu. La mort remonte à environ 22h."
-            $ indices_decouverts["salon"].append("corps")
-        
-        "Les alentours" if "note" not in indices_decouverts["salon"]:
-            "Vous trouvez une note froissée près du corps."
-            $ indices_decouverts["salon"].append("note")
-        
-        "Les traces" if "traces" not in indices_decouverts["salon"]:
-            "Des traces de pas mènent vers la fenêtre du salon."
-            $ indices_decouverts["salon"].append("traces")
-        
-        "Quitter":
-            jump menu_principal
-    
-    jump inspecter_scene_meurtre 
+            jump menu_principal 

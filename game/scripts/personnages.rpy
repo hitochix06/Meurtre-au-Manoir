@@ -22,23 +22,77 @@ define madeleine = Character("Madeleine Rousseau", color="#E67E22")
 
 # Introduction des dialogues dans les pièces
 label interrogations:
-    label salon:
-        scene salon_meurtre with fade
-        eloise "J'étais sortie fumer après une dispute avec Hugo... Vous ne pensez pas que je suis coupable ?"
-        inspecteur "Que savez-vous d'Antoine ?"
-        eloise "Il rôdait autour du salon. Je crois qu'il n'aimait pas Hugo, et je pense qu'il l'a tué."
-        return
+    menu:
+        "Quelle pièce examiner ?"
+        
+        "Le salon":
+            jump salon
+        
+        "La cuisine":
+            jump cuisine
+        
+        "Le jardin":
+            jump jardin
+        
+        "Le bureau":
+            jump bureau
+        
+        "La bibliothèque":
+            jump bibliotheque
+        
+        "La cave":
+            jump cave
+    
+    return
 
-    label cuisine:
-        scene cuisine_manoir with dissolve
-        antoine "Moi? J'étais dans la cuisine. Hugo faisait des dettes de jeu avec des inconnus souvent douteux. Peut-être que c'est un de ses ennemis."
-        return
+label salon:
+    scene salon_meurtre with fade
+    show eloise neutral at right
+    eloise "J'étais sortie fumer après une dispute avec Hugo... Vous ne pensez pas que je suis coupable ?"
+    detective "Que savez-vous d'Antoine ?"
+    eloise "Il rôdait autour du salon. Je crois qu'il n'aimait pas Hugo, et je pense qu'il l'a tué."
+    return
 
-    label jardin:
-        scene jardin_manoir with fade
-        victor "Je ne comprends pas... Hugo était un bon ami. Je ne sais pas qui pourrait vouloir lui faire du mal."
-        victor "Mais j'ai entendu Antoine et Hugo se disputer hier soir."
-        return
+label cuisine:
+    scene cuisine_manoir with fade
+    show antoine neutral at right
+    antoine "Moi ? J'étais dans la cuisine. Hugo faisait des dettes de jeu avec des inconnus souvent douteux. Peut-être que c'est un de ses ennemis."
+    detective "Pouvez-vous me dire qui d'autre était présent ce soir-là ?"
+    antoine "Je... je ne me souviens pas exactement. Il y avait beaucoup de monde."
+    return
+
+label jardin:
+    scene jardin_manoir with fade
+    show victor neutral at right
+    victor "Je ne comprends pas... Hugo était un bon ami. Je ne sais pas qui pourrait vouloir lui faire du mal."
+    victor "Mais j'ai entendu Antoine et Hugo se disputer hier soir."
+    detective "Quelle était la nature de cette dispute ?"
+    victor "Je... je ne sais pas exactement. Mais Antoine semblait très en colère."
+    return
+
+label bureau:
+    scene bureau with fade
+    show clara neutral at right
+    clara "J'étais en train de travailler sur des documents importants."
+    detective "Quels documents ?"
+    clara "Des... des papiers personnels d'Hugo. Il m'avait demandé de les examiner."
+    return
+
+label bibliotheque:
+    scene bibliotheque with fade
+    show madeleine neutral at right
+    madeleine "Je lisais, comme d'habitude. Cette bibliothèque est si paisible..."
+    detective "Avez-vous entendu quelque chose d'inhabituel ?"
+    madeleine "Peut-être... des pas dans le couloir, mais je ne peux pas en être sûre."
+    return
+
+label cave:
+    scene cave with fade
+    show charles neutral at right
+    charles "Je cherchais une bouteille particulière. Hugo m'avait demandé de la sortir."
+    detective "Avez-vous trouvé cette bouteille ?"
+    charles "Non... Je... je ne l'ai pas trouvée. Je suis remonté bredouille."
+    return
 
 # Scènes d'interrogatoire individuelles
 label interroger_eloise:
