@@ -22,22 +22,28 @@ init python:
     # Configuration audio
     AMBIENT_SOUND = "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3"
     
+    # Transitions rapides
+    quick_fade = Fade(0.2, 0.0, 0.2)
+    quick_dissolve = Dissolve(0.2)
+    
     def setup_character(character_name, scene_name):
         renpy.scene()
-        renpy.show(scene_name, transition=fade)
+        renpy.with_statement(quick_fade)
+        renpy.show(scene_name)
+        renpy.with_statement(quick_dissolve)
         renpy.show(character_name, 
                   at_list=[Transform(
                       zoom=CHARACTER_DISPLAY["zoom"],
                       yalign=CHARACTER_DISPLAY["yalign"],
                       xalign=CHARACTER_DISPLAY["xalign"]
-                  )],
-                  transition=dissolve)
-        renpy.with_statement(Pause(0.5))
-        renpy.music.play(AMBIENT_SOUND, channel="sound", fadein=1.0)
+                  )])
+        renpy.with_statement(Pause(0.2))
+        renpy.music.play(AMBIENT_SOUND, channel="sound", fadein=0.5)
 
     def end_dialogue(character_name):
-        renpy.music.stop(channel="sound", fadeout=1.0)
-        renpy.hide(character_name, transition=dissolve)
+        renpy.music.stop(channel="sound", fadeout=0.5)
+        renpy.with_statement(quick_dissolve)
+        renpy.hide(character_name)
 
     def start_dialogue(character_name):
         setup_character(character_name, CHARACTER_LOCATIONS[character_name])
