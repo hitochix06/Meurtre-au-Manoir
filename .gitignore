@@ -1,0 +1,49 @@
+# Fichiers générés par Ren'Py
+*.rpyc
+*.rpyb
+*.rpymc
+*.pyc
+*.pyo
+*~
+*.bak
+*.swp
+
+# Dossiers de cache et de compilation
+game/cache/
+game/saves/
+log.txt
+errors.txt
+traceback.txt
+
+# Dossiers de builds
+build/
+dist/
+
+# Fichiers temporaires
+tmp/
+*.tmp
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers spécifiques à l'environnement de développement
+.vscode/
+.idea/
+
+# Dossiers de persistance
+game/persistent/
+
+# Fichiers de sauvegarde
+*.save
+*.save[0-9]*
+
+# Fichiers audio temporaires
+*.wav.import
+*.ogg.import
+*.mp3.import
+
+# Fichiers d'images temporaires
+*.png.import
+*.jpg.import
+*.webp.import 
