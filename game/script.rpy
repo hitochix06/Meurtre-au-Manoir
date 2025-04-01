@@ -10,6 +10,7 @@ image cave = "images/lieux/cave.png"
 image manoir = "images/lieux/manoir.png"
 image bureau = "images/lieux/bureau.png"
 image jardin = "images/lieux/jardin.png"
+image info = "images/info.png"
 
 
 # Images des personnages
@@ -59,21 +60,9 @@ init python:
 # Le jeu commence ici.
 label start:
     scene black
-    "Bienvenue dans Meurtre au Manoir"
-    "Avant de commencer l'enquête, voici comment jouer :"
-    
-    "Contrôles :"
-    "- Utilisez la souris pour explorer les pièces"
-    "- Cliquez sur les objets pour les examiner"
-    "- Appuyez sur 'T' pour ouvrir votre tablette d'enquête"
-    "- Appuyez sur 'Espace' pour avancer dans les dialogues"
-    
-    "Objectif :"
-    "Vous devez résoudre le mystère du meurtre d'Hugo Delacourt."
-    "Explorez le manoir, collectez des indices et interrogez les suspects."
-    
-    
-    
+    show info with dissolve
+    pause
+    hide info with dissolve
     jump introduction
 
 # Introduction du jeu
