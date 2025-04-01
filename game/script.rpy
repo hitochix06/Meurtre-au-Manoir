@@ -9,20 +9,6 @@ define clara = Character("Clara Duvivier", color="#9B59B6")
 define charles = Character("Charles Beaumont", color="#34495E")
 define madeleine = Character("Madeleine Rousseau", color="#E67E22")
 
-# Introduction du jeu
-label introduction:
-    scene black with fade
-    scene manoir with dissolve
-    "Une nuit d'hiver au manoir Beaumont."
-    "Le prestigieux détective Hugo Delacourt est retrouvé mort dans le salon, tué d'une balle en plein cœur."
-    "Sur la table, six objets sont soigneusement disposés, chacun lié aux convives présents ce soir-là."
-    "Tous avaient un mobile."
-    "Mais un seul a appuyé sur la détente."
-    "Vous incarnez l'inspecteur Jouvet."
-    "Votre objectif : comprendre qui a tué Hugo, pourquoi... et comment."
-    scene black with fade
-    jump start
-
 init python:
     # Variables pour suivre les indices découverts
     indices_decouverts = {
@@ -36,6 +22,20 @@ init python:
 
 # Le jeu commence ici.
 label start:
+    jump introduction
+
+# Introduction du jeu
+label introduction:
+    scene black with fade
+    scene manoir with dissolve
+    "Une nuit au manoir Beaumont."
+    "Le prestigieux détective Hugo Delacourt est retrouvé mort dans le salon, tué d'une balle en plein cœur."
+    "Sur la table, six objets sont soigneusement disposés, chacun lié aux convives présents ce soir-là."
+    "Tous avaient un mobile."
+    "Mais un seul a appuyé sur la détente."
+    "Vous incarnez l'inspecteur Jouvet."
+    "Votre objectif : comprendre qui a tué Hugo, pourquoi... et comment."
+    scene black with fade
     scene salon_meurtre with fade
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
