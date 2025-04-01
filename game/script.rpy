@@ -55,16 +55,6 @@ init python:
         "cave": ["Charles"]
     }
 
-    # Variables pour suivre les notes sur les suspects
-    suspect_notes = {
-        "Eloise": {"alibi": False, "mobile": False, "preuve": False},
-        "Antoine": {"alibi": False, "mobile": False, "preuve": False},
-        "Victor": {"alibi": False, "mobile": False, "preuve": False},
-        "Clara": {"alibi": False, "mobile": False, "preuve": False},
-        "Charles": {"alibi": False, "mobile": False, "preuve": False},
-        "Madeleine": {"alibi": False, "mobile": False, "preuve": False}
-    }
-
 # Le jeu commence ici.
 label start:
     jump introduction
