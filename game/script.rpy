@@ -39,12 +39,6 @@ label menu_principal:
         "Interroger les suspects":
             call interroger
         
-        "Fouiller le bureau":
-            call fouiller_bureau
-        
-        "Inspecter la cuisine":
-            call inspecter_cuisine
-        
         "Accuser un suspect":
             call menu_accusation
         
@@ -72,7 +66,7 @@ label inspecter_scene_meurtre:
         "Que souhaitez-vous examiner ?"
         
         "Le corps" if "corps" not in indices_decouverts["salon"]:
-            "Le corps présente une blessure par arme blanche. La mort remonte à environ 22h."
+            "Le corps présente une blessure par arme à feu. La mort remonte à environ 22h."
             $ indices_decouverts["salon"].append("corps")
         
         "Les alentours" if "note" not in indices_decouverts["salon"]:
@@ -80,7 +74,7 @@ label inspecter_scene_meurtre:
             $ indices_decouverts["salon"].append("note")
         
         "Les traces" if "traces" not in indices_decouverts["salon"]:
-            "Des traces de pas mènent vers le jardin."
+            "Des traces de pas mènent vers la fenêtre du salon."
             $ indices_decouverts["salon"].append("traces")
         
         "Quitter":

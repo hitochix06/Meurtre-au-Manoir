@@ -11,10 +11,21 @@ label interroger:
                     renpy.say("", "- " + perso)
             menu:
                 "Qui souhaitez-vous interroger ?"
+                "Antoine Durand":
+                    call dialogue_antoine
+                "Retour":
+                    jump interroger
+        
+        "La cuisine":
+            scene cuisine with fade
+            "Dans la cuisine, vous voyez :"
+            python:
+                for perso in localisation_personnages["cuisine"]:
+                    renpy.say("", "- " + perso)
+            menu:
+                "Qui souhaitez-vous interroger ?"
                 "Éloïse Marceau":
                     call dialogue_eloise
-                "Victor Delmas":
-                    call dialogue_victor
                 "Retour":
                     jump interroger
         
@@ -31,16 +42,16 @@ label interroger:
                 "Retour":
                     jump interroger
         
-        "La cuisine":
-            scene cuisine with fade
-            "Dans la cuisine, vous voyez :"
+        "Le jardin":
+            scene jardin with fade
+            "Dans le jardin, vous voyez :"
             python:
-                for perso in localisation_personnages["cuisine"]:
+                for perso in localisation_personnages["jardin"]:
                     renpy.say("", "- " + perso)
             menu:
                 "Qui souhaitez-vous interroger ?"
-                "Antoine Durand":
-                    call dialogue_antoine
+                "Victor Delmas":
+                    call dialogue_victor
                 "Retour":
                     jump interroger
         

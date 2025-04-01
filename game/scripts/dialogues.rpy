@@ -11,16 +11,17 @@ init python:
     
     # Localisation des personnages
     localisation_personnages = {
-        "salon": ["Eloise", "Victor"],
+        "salon": ["Antoine"],
+        "cuisine": ["Eloise"],
         "bureau": ["Clara"],
-        "cuisine": ["Antoine"],
+        "jardin": ["Victor"],
         "bibliotheque": ["Madeleine"],
         "cave": ["Charles"]
     }
 
 # Labels pour les dialogues de chaque personnage
 label dialogue_eloise:
-    scene salon_meurtre
+    scene cuisine
     show eloise neutral
     
     if not dialogues_debloques["Eloise"]["documents"] and "finances" in indices_decouverts["bureau"]:
@@ -35,13 +36,13 @@ label dialogue_eloise:
     return
 
 label dialogue_antoine:
-    scene cuisine
+    scene salon_meurtre
     show antoine neutral
     
-    if not dialogues_debloques["Antoine"]["couteaux"] and "couteau" in indices_decouverts["cuisine"]:
+    if not dialogues_debloques["Antoine"]["couteaux"] and "poudre" in indices_decouverts["salon"]:
         $ dialogues_debloques["Antoine"]["couteaux"] = True
-        antoine "Les couteaux ? Je... je ne les ai pas comptés ce soir-là."
-        antoine "Il en manque un ? C'est possible, la cuisine est accessible à tous..."
+        antoine "Les traces de poudre ? Je... je ne les avais pas remarquées."
+        antoine "Le salon est si grand, il y a toujours des choses qui passent inaperçues..."
     
     if not dialogues_debloques["Antoine"]["clara"] and "testament" in indices_decouverts["bureau"]:
         $ dialogues_debloques["Antoine"]["clara"] = True
@@ -50,7 +51,7 @@ label dialogue_antoine:
     return
 
 label dialogue_victor:
-    scene salon_meurtre
+    scene jardin
     show victor neutral
     
     if not dialogues_debloques["Victor"]["dettes"] and "finances" in indices_decouverts["bureau"]:
@@ -58,7 +59,7 @@ label dialogue_victor:
         victor "C'est vrai, je lui devais de l'argent. Beaucoup d'argent."
         victor "Il menaçait de tout révéler à ma famille, à mes associés..."
     
-    if not dialogues_debloques["Victor"]["antoine"] and "couteau" in indices_decouverts["cuisine"]:
+    if not dialogues_debloques["Victor"]["antoine"] and "poudre" in indices_decouverts["salon"]:
         $ dialogues_debloques["Victor"]["antoine"] = True
         victor "Antoine ? Il détestait Hugo, c'était évident."
         victor "Je l'ai entendu dire qu'il 'règlerait son compte' à Hugo."
@@ -83,10 +84,10 @@ label dialogue_charles:
     scene cave
     show charles neutral
     
-    if not dialogues_debloques["Charles"]["bouteille"] and "verre" in indices_decouverts["cuisine"]:
+    if not dialogues_debloques["Charles"]["bouteille"] and "sang" in indices_decouverts["cave"]:
         $ dialogues_debloques["Charles"]["bouteille"] = True
-        charles "Cette bouteille brisée ? Je l'ai trouvée comme ça."
-        charles "J'ai voulu la ramasser, c'est pour ça qu'il y a mes empreintes."
+        charles "Ces traces de sang ? Je les ai trouvées comme ça."
+        charles "J'ai voulu les nettoyer, c'est pour ça qu'il y a mes empreintes."
     
     if not dialogues_debloques["Charles"]["sang"] and "sang" in indices_decouverts["cave"]:
         $ dialogues_debloques["Charles"]["sang"] = True
@@ -103,8 +104,8 @@ label dialogue_madeleine:
         madeleine "Oh oui, j'ai vu Hugo glisser un mot à Clara pendant le dîner."
         madeleine "Ils pensaient être discrets, mais je vois tout, vous savez..."
     
-    if not dialogues_debloques["Madeleine"]["antoine"] and "couteau" in indices_decouverts["cuisine"]:
+    if not dialogues_debloques["Madeleine"]["antoine"] and "poudre" in indices_decouverts["salon"]:
         $ dialogues_debloques["Madeleine"]["antoine"] = True
         madeleine "Antoine ? Il était particulièrement nerveux ce soir-là."
-        madeleine "Je l'ai vu sortir de la cuisine avec quelque chose sous sa veste."
+        madeleine "Je l'ai vu sortir du salon avec quelque chose sous sa veste."
     return 
