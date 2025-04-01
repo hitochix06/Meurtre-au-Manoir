@@ -5,6 +5,7 @@ label interroger:
         
         "Le salon":
             scene salon_meurtre with fade
+            show antoine at right
             "Dans le salon, vous voyez :"
             python:
                 for perso in localisation_personnages["salon"]:
@@ -18,6 +19,7 @@ label interroger:
         
         "La cuisine":
             scene cuisine with fade
+            show eloise at right
             "Dans la cuisine, vous voyez :"
             python:
                 for perso in localisation_personnages["cuisine"]:
@@ -31,6 +33,7 @@ label interroger:
         
         "Le bureau":
             scene bureau with fade
+            show clara at right
             "Dans le bureau, vous voyez :"
             python:
                 for perso in localisation_personnages["bureau"]:
@@ -44,6 +47,7 @@ label interroger:
         
         "Le jardin":
             scene jardin with fade
+            show victor at right
             "Dans le jardin, vous voyez :"
             python:
                 for perso in localisation_personnages["jardin"]:
@@ -57,6 +61,7 @@ label interroger:
         
         "La bibliothèque":
             scene bibliotheque with fade
+            show madeleine at right
             "Dans la bibliothèque, vous voyez :"
             python:
                 for perso in localisation_personnages["bibliotheque"]:
@@ -70,6 +75,7 @@ label interroger:
         
         "La cave":
             scene cave with fade
+            show charles at right
             "Dans la cave, vous voyez :"
             python:
                 for perso in localisation_personnages["cave"]:

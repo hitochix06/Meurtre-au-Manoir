@@ -1,5 +1,23 @@
 ### Menu principal ###
 
+# Définition des images
+# Images des lieux
+image bibliotheque = "images/lieux/bibliotheque.png"
+image salon_meurtre = "images/salon_meurtre.png"
+image cuisine = "images/lieux/cusine.png"
+image cave = "images/lieux/cave.png"
+image manoir = "images/lieux/manoir.png"
+image bureau = "images/lieux/bureau.png"
+image jardin = "images/lieux/jardin.png"
+
+# Images des personnages
+image madeleine = "images/personnage/madeleine.png"
+image eloise = "images/personnage/eloise.png"
+image antoine = "images/personnage/antoine.png"
+image victor = "images/personnage/victor.png"
+image clara = "images/personnage/clara.png"
+image charles = "images/personnage/charles.png"
+
 # Définition des personnages
 define detective = Character("Détective", color="#c8ffc8")
 define eloise = Character("Éloïse Marceau", color="#D36E70")
