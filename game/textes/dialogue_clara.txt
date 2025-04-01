@@ -1,0 +1,31 @@
+# Dialogues de Clara Duvivier
+
+## Premier interrogatoire
+"J'étais à la bibliothèque, je lisais... Je sais que c'est un alibi faible."
+"Hugo m'avait donné accès à sa collection de livres rares."
+"Non, je n'ai rien entendu de suspect... J'étais absorbée par ma lecture."
+
+## Si questionnée sur le mot
+"Ce mot ? Ce n'était rien d'important..."
+"Hugo voulait juste me parler de certains documents..."
+"Je ne peux pas en dire plus, c'était... personnel."
+
+## Si confrontée au testament
+"Le testament ? Je... je ne savais pas qu'il m'y avait incluse."
+"Nous avions une relation particulière... professionnelle."
+"Il m'aidait dans mes recherches historiques."
+
+## Si interrogée sur Antoine
+"Antoine rôdait souvent près du bureau d'Hugo."
+"Je l'ai vu une fois essayer d'ouvrir un tiroir en cachette."
+"Quand il m'a vue, il a prétendu chercher des recettes..."
+
+## Si questionnée sur Éloïse
+"Madame Marceau ? Elle était jalouse de ma proximité avec Hugo."
+"Elle pensait qu'il y avait quelque chose entre nous..."
+"Mais c'était purement intellectuel, je vous assure."
+
+## Si accusée
+"M'accuser ? Mais c'est ridicule !"
+"Oui, Hugo m'a incluse dans son testament, mais je ne le savais même pas !"
+"J'étais sa confidente, pas son assassin !" 

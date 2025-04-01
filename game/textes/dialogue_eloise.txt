@@ -1,0 +1,26 @@
+# Dialogues d'Éloïse Marceau
+
+## Premier interrogatoire
+"Je... j'étais sortie fumer. Hugo et moi nous étions disputés."
+"Il me cachait des choses, des documents étranges, des appels en pleine nuit..."
+"J'ai vu Antoine rôder près du salon. Il déteste Hugo, vous savez."
+
+## Si confrontée aux documents
+"Ces papiers... Je les ai vus sur son bureau. Il les cachait dès que j'approchais."
+"Je pense qu'il avait des problèmes d'argent, mais il refusait d'en parler."
+
+## Si questionnée sur Victor
+"Victor ? Oui, il venait souvent. Toujours pour emprunter de l'argent à Hugo."
+"Leur dernière dispute était violente. J'ai entendu Hugo menacer de tout révéler."
+
+## Si interrogée sur Clara
+"Cette petite fouineuse... Je l'ai vue plusieurs fois sortir du bureau d'Hugo."
+"Elle prétend venir pour les livres, mais je sais qu'il y a autre chose."
+
+## Confrontée aux preuves
+"Le couteau de cuisine ? Non, je n'y ai pas touché. Demandez à Antoine, c'est son domaine."
+"Les traces de pas dans le jardin ? J'y suis allée pour fumer, je vous l'ai dit."
+
+## Si accusée
+"Comment osez-vous ? J'aimais Hugo malgré nos différends !"
+"Oui, nous nous disputions, mais je n'aurais jamais... jamais..."

@@ -1,0 +1,43 @@
+Le meurtrier avait un mobile financier.
+On a vu Antoine rôder avec un couteau.
+L'arme du crime a été trouvée dans la cuisine.
+
+# Liste des indices
+
+## Scène de crime
+- Corps découvert dans le salon
+- Heure du décès estimée à 22h
+- Arme du crime : couteau de cuisine
+- Traces de pas dans le jardin
+- Note froissée près du corps
+
+## Bureau
+- Documents financiers compromettants
+- Carnet d'adresses avec noms soulignés
+- Lettre de menace non signée
+- Factures impayées
+- Testament récemment modifié
+
+## Cuisine
+- Couteau manquant dans le bloc
+- Traces de lutte sur le comptoir
+- Verre de vin brisé
+- Empreintes sur la porte
+
+## Jardin
+- Mégots de cigarettes
+- Traces de pas dans la boue
+- Fenêtre du salon entrouverte
+- Gant ensanglanté caché dans les buissons
+
+## Bibliothèque
+- Livre déplacé avec note cachée
+- Journal intime d'Hugo
+- Photographie compromettante
+- Liste de dettes
+
+## Cave
+- Bouteille de vin cassée
+- Traces de sang sur l'escalier
+- Empreintes de pas
+- Morceau de tissu déchiré

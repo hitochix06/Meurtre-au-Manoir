@@ -1,0 +1,30 @@
+# Dialogues d'Antoine Durand
+
+## Premier interrogatoire
+"J'étais en cuisine, comme d'habitude. Je rangeais après le dîner."
+"Victor est louche dans cette histoire. Il doit de l'argent à Hugo."
+"Personne ne peut confirmer ma présence ? Non, j'étais seul..."
+
+## Si questionné sur les couteaux
+"Les couteaux ? Je... je ne les ai pas comptés ce soir-là."
+"Il en manque un ? C'est possible, la cuisine est accessible à tous..."
+"Beaucoup de gens passent par ici, vous savez."
+
+## Si confronté à Éloïse
+"Elle m'a vu près du salon ? J'y passais pour aller aux toilettes !"
+"Madame Marceau me déteste depuis que j'ai menacé de démissionner."
+
+## Si questionné sur Victor
+"Victor ? Il venait souvent emprunter de l'argent à Hugo."
+"Leurs disputes étaient violentes. J'ai entendu des menaces..."
+"La dernière fois, Victor criait qu'il ne se laisserait pas faire."
+
+## Si interrogé sur Clara
+"Cette demoiselle ? Elle traîne souvent dans le manoir."
+"Je l'ai surprise une fois à fouiller dans le bureau d'Hugo."
+"Elle prétendait chercher un livre, mais son comportement était suspect."
+
+## Si accusé
+"C'est ridicule ! Pourquoi aurais-je tué Hugo ?"
+"Oui, il menaçait de me renvoyer, mais j'avais déjà trouvé un autre poste !"
+"Je n'avais aucune raison de le tuer !"
