@@ -1,6 +1,7 @@
 init python:
     # Variables pour le système d'accusation
     tentatives_accusation = 0
+    indice_affiché = False
     
     # Liste des suspects et des armes
     suspects = ["Éloïse Marceau", "Antoine Durand", "Victor Delmas", "Clara Duvivier", "Charles Beaumont", "Madeleine Rousseau"]
@@ -70,6 +71,14 @@ label verification_accusation:
     else:
         "Ce n'est pas la bonne combinaison. Essayez encore !"
         $ tentatives_accusation += 1
+        
+        if tentatives_accusation >= 3 and not indice_affiché:
+            $ indice_affiché = True
+            "Vous semblez avoir des difficultés... Laissez-moi vous donner quelques indices :"
+            "Le coupable est une femme..."
+            "Et l'arme est un objet qui peut être facilement dissimulé..."
+            "Ces indices devraient vous aider à résoudre l'énigme."
+        
         menu:
             "Que souhaitez-vous faire ?"
             "Réessayer":

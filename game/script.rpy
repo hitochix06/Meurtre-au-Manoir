@@ -54,9 +54,26 @@ init python:
         "bibliotheque": ["Madeleine"],
         "cave": ["Charles"]
     }
-
+    
+  
 # Le jeu commence ici.
 label start:
+    scene black
+    "Bienvenue dans Meurtre au Manoir"
+    "Avant de commencer l'enquête, voici comment jouer :"
+    
+    "Contrôles :"
+    "- Utilisez la souris pour explorer les pièces"
+    "- Cliquez sur les objets pour les examiner"
+    "- Appuyez sur 'T' pour ouvrir votre tablette d'enquête"
+    "- Appuyez sur 'Espace' pour avancer dans les dialogues"
+    
+    "Objectif :"
+    "Vous devez résoudre le mystère du meurtre d'Hugo Delacourt."
+    "Explorez le manoir, collectez des indices et interrogez les suspects."
+    
+    
+    
     jump introduction
 
 # Introduction du jeu
@@ -77,8 +94,7 @@ label introduction:
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
     
-    jump menu_principal
-
+   
 # Menu principal des actions
 label menu_principal:
     menu:
