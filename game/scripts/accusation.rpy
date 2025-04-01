@@ -1,15 +1,10 @@
 init python:
     # Variables pour le système d'accusation
     tentatives_accusation = 0
-    indices_disponibles = [
-        "Éloïse avait un mobile personnel contre Hugo.",
-        "On a trouvé des traces de poudre à canon dans le salon.",
-        "Un pistolet a été découvert dans le jardin.",
-        "Des traces de pas mènent vers la fenêtre du salon.",
-        "Une lettre de menace a été trouvée dans le bureau.",
-        "Des empreintes ont été relevées sur l'arme."
-    ]
-    indices_utilises = []
+    
+    # Liste des suspects et des armes
+    suspects = ["Éloïse Marceau", "Antoine Durand", "Victor Delmas", "Clara Duvivier", "Charles Beaumont", "Madeleine Rousseau"]
+    armes = ["Pistolet de poche", "Corde nouée", "Statue", "Canne-épée", "Poignard orné"]
 
 # Système d'accusation
 label menu_accusation:
@@ -17,48 +12,56 @@ label menu_accusation:
     
     "Le moment est venu de désigner le coupable."
     
-    if tentatives_accusation >= 3:
-        "Vous avez fait plusieurs tentatives d'accusation infructueuses."
-        "Voulez-vous recevoir un indice pour vous aider ?"
-        
-        menu:
-            "Oui, je veux un indice":
-                if indices_disponibles:
-                    $ indice = indices_disponibles.pop(0)
-                    $ indices_utilises.append(indice)
-                    "[indice]"
-                else:
-                    "Vous avez déjà utilisé tous les indices disponibles."
-            
-            "Non, je veux continuer l'enquête":
-                jump menu_principal
-    
     "Qui accusez-vous ?"
-    $ suspect = renpy.input("Entrez le nom du suspect:", "", length=20)
-    $ suspect = suspect.strip()
-    
+    menu:
+        "Choisissez un suspect:"
+        "Éloïse Marceau":
+            $ suspect_choisi = "Éloïse Marceau"
+            jump choix_arme
+        "Antoine Durand":
+            $ suspect_choisi = "Antoine Durand"
+            jump choix_arme
+        "Victor Delmas":
+            $ suspect_choisi = "Victor Delmas"
+            jump choix_arme
+        "Clara Duvivier":
+            $ suspect_choisi = "Clara Duvivier"
+            jump choix_arme
+        "Charles Beaumont":
+            $ suspect_choisi = "Charles Beaumont"
+            jump choix_arme
+        "Madeleine Rousseau":
+            $ suspect_choisi = "Madeleine Rousseau"
+            jump choix_arme
+
+label choix_arme:
     "Quelle arme a été utilisée selon vous ?"
-    $ arme = renpy.input("Entrez le nom de l'arme:", "", length=20)
-    $ arme = arme.strip()
-    
+    menu:
+        "Choisissez une arme:"
+        "Pistolet de poche":
+            $ arme_choisie = "Pistolet de poche"
+            jump verification_accusation
+        "Corde nouée":
+            $ arme_choisie = "Corde nouée"
+            jump verification_accusation
+        "Statue":
+            $ arme_choisie = "Statue"
+            jump verification_accusation
+        "Canne-épée":
+            $ arme_choisie = "Canne-épée"
+            jump verification_accusation
+        "Poignard orné":
+            $ arme_choisie = "Poignard orné"
+            jump verification_accusation
+
+label verification_accusation:
     # Vérification de l'accusation
-    if suspect.lower() == "eloise" and arme.lower() == "pistolet":
-        if "poudre" in indices_decouverts["salon"] and "empreintes" in indices_decouverts["salon"]:
-            "Vous avez résolu l'affaire ! Éloïse est bien la coupable."
-            "Les preuves étaient là : les traces de poudre, les empreintes sur l'arme..."
-            "Bravo, inspecteur !"
-            $ tentatives_accusation = 0
-            $ indices_utilises = []
-            return
-        else:
-            "Votre accusation ne tient pas... Il vous manque des preuves."
-            "Continuez votre enquête."
-            $ tentatives_accusation += 1
-            jump menu_principal
+    if suspect_choisi == "Éloïse Marceau" and arme_choisie == "Pistolet de poche":
+        scene victory with fade
+        "Vous avez résolu l'affaire ! Éloïse est bien la coupable."
+        "Bravo, inspecteur !"
+        return
     else:
-        "Votre accusation ne correspond pas aux faits."
-        "Continuez votre enquête."
+        "Ce n'est pas la bonne combinaison. Essayez encore !"
         $ tentatives_accusation += 1
-        jump menu_principal
-    
-    return 
+        jump menu_principal 

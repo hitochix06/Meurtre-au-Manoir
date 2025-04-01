@@ -2,29 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/scripts/dialogues.rpy", line 5: end of line expected.
-    show madeleine at center, yalign 0.2 zoom 1.5 with dissolve
-                                     ^
+File "game/scripts/accusation.rpy", line 18: expected menuitem
+    for suspect in suspects:
+    ^
 
-File "game/scripts/dialogues.rpy", line 19: end of line expected.
-    show eloise at center, yalign 0.2 zoom 1.5 with dissolve
-                                  ^
-
-File "game/scripts/dialogues.rpy", line 33: end of line expected.
-    show antoine at center, yalign 0.2 zoom 1.5 with dissolve
-                                   ^
-
-File "game/scripts/dialogues.rpy", line 47: end of line expected.
-    show victor at center, yalign 0.2 zoom 1.5 with dissolve
-                                  ^
-
-File "game/scripts/dialogues.rpy", line 61: end of line expected.
-    show clara at center, yalign 0.2 zoom 1.5 with dissolve
-                                 ^
-
-File "game/scripts/dialogues.rpy", line 75: end of line expected.
-    show charles at center, yalign 0.2 zoom 1.5 with dissolve
-                                   ^
+File "game/scripts/accusation.rpy", line 27: expected menuitem
+    for arme in armes:
+    ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Apr  1 11:15:12 2025
+Tue Apr  1 11:53:25 2025
