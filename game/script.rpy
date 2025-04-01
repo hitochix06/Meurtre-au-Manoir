@@ -18,6 +18,9 @@ image victor = "images/personnage/victor.png"
 image clara = "images/personnage/clara.png"
 image charles = "images/personnage/charles.png"
 
+# Définition des sons
+define audio.salon_ambiance = "audio/room-tone-int-living-room_poa_horns_trafic_kitchen-noises_m-18976.mp3"
+
 # Définition des personnages
 define detective = Character("Détective", color="#c8ffc8")
 define eloise = Character("Éloïse Marceau", color="#D36E70")
@@ -39,6 +42,16 @@ init python:
     }
     # Variable pour suivre si des interrogatoires ont été effectués
     interrogatoires_effectues = False
+    
+    # Localisation des personnages
+    localisation_personnages = {
+        "salon": ["Antoine"],
+        "cuisine": ["Eloise"],
+        "bureau": ["Clara"],
+        "jardin": ["Victor"],
+        "bibliotheque": ["Madeleine"],
+        "cave": ["Charles"]
+    }
 
 # Le jeu commence ici.
 label start:
@@ -59,6 +72,7 @@ label introduction:
     scene black with fade
     stop music fadeout 2.0
     scene salon_meurtre with fade
+    play music salon_ambiance fadein 2.0
     "Le corps d'Hugo Marceau, riche propriétaire du manoir, a été découvert ce matin dans le salon."
     "En tant que détective privé, vous devez résoudre ce mystère."
     

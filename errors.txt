@@ -2,11 +2,41 @@
 errors listed below, and try again.
 
 
-The label scanner_qr is defined twice, at File "game/script.rpy", line 62:
-label scanner_qr:
-and File "game/scripts/qr_code.rpy", line 9:
-label scanner_qr:
+The label dialogue_madeleine is defined twice, at File "game/scripts/dialogues.rpy", line 110:
+label dialogue_madeleine:
+and File "game/scripts/dialogues.rpy", line 125:
+label dialogue_madeleine:
+
+
+The label dialogue_eloise is defined twice, at File "game/scripts/dialogues.rpy", line 23:
+label dialogue_eloise:
+and File "game/scripts/dialogues.rpy", line 133:
+label dialogue_eloise:
+
+
+The label dialogue_antoine is defined twice, at File "game/scripts/dialogues.rpy", line 50:
+label dialogue_antoine:
+and File "game/scripts/dialogues.rpy", line 141:
+label dialogue_antoine:
+
+
+The label dialogue_victor is defined twice, at File "game/scripts/dialogues.rpy", line 65:
+label dialogue_victor:
+and File "game/scripts/dialogues.rpy", line 149:
+label dialogue_victor:
+
+
+The label dialogue_clara is defined twice, at File "game/scripts/dialogues.rpy", line 80:
+label dialogue_clara:
+and File "game/scripts/dialogues.rpy", line 157:
+label dialogue_clara:
+
+
+The label dialogue_charles is defined twice, at File "game/scripts/dialogues.rpy", line 95:
+label dialogue_charles:
+and File "game/scripts/dialogues.rpy", line 165:
+label dialogue_charles:
 
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Apr  1 09:39:39 2025
+Tue Apr  1 10:50:00 2025

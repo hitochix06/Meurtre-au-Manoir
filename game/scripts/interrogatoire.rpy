@@ -61,7 +61,6 @@ label interroger:
         
         "La bibliothèque":
             scene bibliotheque with fade
-            show madeleine at right
             "Dans la bibliothèque, vous voyez :"
             python:
                 for perso in localisation_personnages["bibliotheque"]:

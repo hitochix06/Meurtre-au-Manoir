@@ -1,38 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 63, in script call
+  File "game/script.rpy", line 78, in script call
     call interroger
-  File "game/scripts/interrogatoire.rpy", line 67, in script call
-    call dialogue_madeleine
-  File "game/scripts/dialogues.rpy", line 112, in script
-    show madeleine neutral
-Exception: Image 'madeleine' does not accept attributes 'neutral'.
+  File "game/scripts/interrogatoire.rpy", line 66, in script
+    python:
+  File "game/scripts/interrogatoire.rpy", line 67, in <module>
+    for perso in localisation_personnages["bibliotheque"]:
+NameError: name 'localisation_personnages' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 63, in script call
+  File "game/script.rpy", line 78, in script call
     call interroger
-  File "game/scripts/interrogatoire.rpy", line 67, in script call
-    call dialogue_madeleine
-  File "game/scripts/dialogues.rpy", line 112, in script
-    show madeleine neutral
-  File "D:\renpy-8.3.3\renpy\ast.py", line 1124, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "D:\renpy-8.3.3\renpy\ast.py", line 1087, in show_imspec
-    renpy.config.show(name,
-  File "D:\renpy-8.3.3\renpy\exports\displayexports.py", line 477, in show
-    if not base.find_target() and renpy.config.missing_show:
-  File "D:\renpy-8.3.3\renpy\display\image.py", line 421, in find_target
-    self.target = target._duplicate(a)
-  File "D:\renpy-8.3.3\renpy\display\displayable.py", line 249, in _duplicate
-    args.extraneous()
-  File "D:\renpy-8.3.3\renpy\display\displayable.py", line 109, in extraneous
-    raise Exception("Image '{}' does not accept attributes '{}'.".format(
-Exception: Image 'madeleine' does not accept attributes 'neutral'.
+  File "game/scripts/interrogatoire.rpy", line 66, in script
+    python:
+  File "D:\renpy-8.3.3\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy-8.3.3\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/scripts/interrogatoire.rpy", line 67, in <module>
+    for perso in localisation_personnages["bibliotheque"]:
+NameError: name 'localisation_personnages' is not defined
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.7.25031702
 Meurtre au Manoir 1.0
-Tue Apr  1 10:46:21 2025
+Tue Apr  1 10:54:16 2025
